@@ -1,0 +1,29 @@
+opam-version: "2.0"
+maintainer: "Hannes Mehnert <hannes@mehnert.org>"
+authors: "Hannes Mehnert <hannes@mehnert.org>"
+license: "ISC"
+homepage: "https://github.com/hannesm/opam-audit"
+doc: "https://hannesm.github.io/opam-audit/doc"
+bug-reports: "https://github.com/hannesm/opam-audit/issues"
+depends: [
+  "ocaml" {>= "4.11.0"}
+  "dune" {>= "1.0"}
+  "logs" {>= "0.10.0"}
+  "bos" {>= "0.2.1"}
+  "fmt" {>= "0.11.0"}
+  "cmdliner" {>= "2.1.0"}
+  "opam-format" {>= "2.5.0"}
+  "jsont" {>= "0.2.0"}
+]
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+]
+dev-repo: "git+https://github.com/hannesm/opam-audit.git"
+synopsis: "Audit your opam switch for known security issues"
+description: """
+Opam audit downloads the OCaml security advisory database and investigates
+whether the active opam switch has any vulnerable opam packages installed.
+"""
+x-maintenance-intent: [ "(latest)" ]

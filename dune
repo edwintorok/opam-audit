@@ -1,0 +1,4 @@
+(executable
+  (name opam_audit)
+  (public_name opam-audit)
+  (libraries logs bos logs.fmt fmt.tty cmdliner fmt.cli logs.cli opam-format opam-state jsont jsont.bytesrw))
