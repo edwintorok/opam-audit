@@ -15,6 +15,7 @@ depends: [
   "opam-format" {>= "2.5.0"}
   "jsont" {>= "0.2.0"}
   "bytesrw" {>= "0.2.0"}
+  "opam-state"
 ]
 build: [
   ["dune" "subst"] {dev}
